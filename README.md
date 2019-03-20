@@ -1,2 +1,2 @@
-# WeTe_Joel
+# WeTe_Joel_Laine
 Web Tekniikan tehtäviä
