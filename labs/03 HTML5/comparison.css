@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.center {
+    text-align: center;
+}
+
+p {
+    font-size: 1.3em;
+    margin-left: 60px;
+}
+
+caption {
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+th {
+    color: white;
+}
+
+td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header {
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: red;
+    border-top: 2px solid black;
+}
+
+.column1 {
+    border-right: 1px solid black;
+    font-weight: bold;
+}
+
+.tableRowBgColor {
+    background-color: lightgrey;
+}

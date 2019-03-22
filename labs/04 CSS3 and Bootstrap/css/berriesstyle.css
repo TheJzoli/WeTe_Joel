@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 6em;
+    margin-bottom: 0em;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+figure {
+    text-align: center;
+}
+
+img {
+    width: 10%;
+    border: 2px solid lightgrey;
+    margin-bottom: 15px;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.blueberry {
+    background-color: #d3d7ff;
+    border-top: 1px solid black;
+}
+
+.cloudberry {
+    background-color: #fcfbea;
+    border-top: 1px solid black;
+}
+
+.lingonberry {
+    background-color: #ffb7bd;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+td {
+    padding: 25px 35px 15px 35px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.italicized {
+    font-size: 0.5em;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 0.7em;
+}
+
