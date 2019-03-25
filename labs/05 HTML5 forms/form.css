@@ -1,0 +1,35 @@
+body {
+    font-family: "Comic Sans MS", Verdana, sans-serif;
+    text-align: center;
+    background-image: url("img/hee.jpg");
+    text-shadow: 2px 2px black;
+    color: white;
+}
+
+fieldset {
+    margin: 0px 35% 10px 35%;
+    background-color: #9f8303;
+    border-width: 3px;
+}
+
+input {
+    font-family: "Papyrus", Verdana, sans-serif;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+input[type="submit"] {
+    background-color: #fefe2d;
+    border-color: #fefe2d;
+}
+
+div#score {
+    margin-bottom: 10px;
+}
+
+a {
+    text-shadow: 2px 2px aliceblue;
+}

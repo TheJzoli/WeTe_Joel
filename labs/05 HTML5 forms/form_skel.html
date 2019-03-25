@@ -6,55 +6,53 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<link href="form.css" type="text/css" rel="stylesheet" />
 	</head>
 	
 	<body>
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
-			<div>
-				Name: <input type="text" name="studentname"/>
-			</div>
-			<div>
-				Student id: <input type="text" name="id"  />
-			</div>
-			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
-			</div>
-			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
-			</div>
+			<fieldset>
+				<legend>Student info:</legend>
+				<div>
+					Name: <input type="text" name="studentname" required title="Nimi pitää olla" placeholder="Etunimi Sukunimi" />
+				</div>
+				<div>
+					Student id: <input type="text" name="id" required title="ID pitää olla 7 pituinen numero" placeholder="1111111" pattern="\d{7}" />
+				</div>
+				<div>
+					Email:	<input type="email" name="email" required title="Sähköposti pitää olla muodossa nimi@sähköposti.xxx" placeholder="etu.suku@metropolia.fi" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+				</div>
+				<div>
+					Assignment: <input type="text" name="assignment" required placeholder="Teksti tähän" />
+				</div>
+				<div>
+					Code: <input type="text" name="code" required placeholder="Koodi tähän" />
+				</div>
+			</fieldset>
 
 			<div>
-				Code:
-				<!--
-				Make an input named "code" which is a text area to put student's code into.
-				-->
-				
+				<label>Cheat: <input type="checkbox" name="cheat" /></label>
 			</div>
-			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
-			</div>
-			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
-			</div>
-			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
+
+			<fieldset>
+				<legend>Payment info:</legend>
+				<div>
+					Pay:<br/>
+					<label><input type="radio" name="payment" value="visa"> Visa<br/></label>
+					<label><input type="radio" name="payment" value="mastercard"> Mastercard<br/></label>
+					<label><input type="radio" name="payment" value="paypal"> PayPal<br/></label>
+				</div>
+			</fieldset>
+			<div id="score">
+				Score:	<input list="scores" name="score"  pattern="[1-5]{1}"  />
+				<datalist id="scores">
+					<option value="1">
+					<option value="2">
+					<option value="3">
+					<option value="4">
+					<option value="5">
+				</datalist>
 			</div>
 			<input type="submit" />
 		</form>
