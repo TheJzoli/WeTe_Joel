@@ -1,14 +1,34 @@
+"use strict";
 
 var notes = new Array();
+var duplicate = false;
+loadList();
 
 function addItem() {
-	textbox = document.getElementById('item');
+	var textbox = document.getElementById('item');
 	var itemText = textbox.value;
 	textbox.value = '';
 	textbox.focus();
-	var newItem = {title: itemText, quantity: 1};
-	notes.push(newItem);
-	displayList();
+
+	for (var i=0; i<notes.length; i++) {
+		if (itemText === notes[i].title) {
+			notes[i].quantity++;
+			duplicate = true;
+			break;
+		}
+	}
+
+	if (!duplicate) {
+		var newItem = {title: itemText, quantity: 1};
+		notes.push(newItem);
+		displayList();
+	} else {
+		displayList();
+		duplicate = false;
+	}
+
+	saveList();
+
 }
 
 function displayList() {
@@ -19,15 +39,29 @@ function displayList() {
 		var note = notes[i];
 		var node = document.createElement('tr');
 		var html = '<td>'+note.title+'</td><td>'+note.quantity+'</td><td><a href="#" onClick="deleteIndex('+i+')">delete</td>';
-	    node.innerHTML = html;
+		node.innerHTML = html;
 		table.appendChild(node);
+		saveList();
 	}
 }
 
 function deleteIndex(i) {
 	notes.splice(i, 1);
-	displayList();
+	saveList();
+	loadList();
 }
 
-button = document.getElementById('add');
+function saveList() {
+	localStorage.notes = JSON.stringify(notes);
+}
+
+function loadList() {
+	console.log('loadList');
+	if (localStorage.notes) {
+		notes = JSON.parse(localStorage.notes);
+		displayList();
+	}
+}
+
+var button = document.getElementById('add');
 button.onclick = addItem;

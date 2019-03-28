@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+article {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+    -webkit-column-rule: 1px dashed black;
+    -moz-column-rule: 1px dashed black;
+    column-rule: 1px dashed black;
+}

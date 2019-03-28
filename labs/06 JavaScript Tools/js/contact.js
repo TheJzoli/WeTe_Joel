@@ -10,8 +10,20 @@ function process() {
     var okay = true;
     
     // Get form references:
+    var name = document.getElementById('name');
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+
+    //Validate the name:
+    name.value = name.value.trim();
+    if(!name || !name.value
+    || (name.value.length < 3)
+    || (name.value.length > 100)
+    || (name.value.indexOf(' ') == -1)) {
+        okay = false;
+        alert('Please enter a valid name!');
+    }
+
     // Validate the email address:
     if (!email || !email.value 
     || (email.value.length < 6) 
