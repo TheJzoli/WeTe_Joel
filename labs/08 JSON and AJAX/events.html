@@ -16,6 +16,12 @@ window.onload = function() {
 	} else if (div.attachEvent) {
 		div.attachEvent("click", handleClick);
 	}
+	var span = document.getElementById("hoverme");
+	if (span.addEventListener) {
+      span.addEventListener("mouseover", handleHover, false);
+    } else if (span.attachEvent) {
+      span.attachEvent("mouseover", handleHover);
+    }
 };
 
 function handleClick(e) {
@@ -29,9 +35,21 @@ function handleClick(e) {
 	alert("You clicked on " + target.id);
 }
 
+function handleHover(e) {
+  var evt = e || window.event;
+  var target;
+  if (evt.target) {
+    target = evt.target;
+  } else {
+    target = evt.srcElement;
+  }
+  alert("You hovered over " + target.id);
+}
+
   </script>
 </head>
 <body>
 <span id="clickme">Click me!</span>
+<span id="hoverme">Hover over me!</span>
 </body>
 </html>
