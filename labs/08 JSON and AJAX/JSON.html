@@ -18,8 +18,24 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+var employee = {
+  name: { first: "Colin",
+    second: "Stephen" },
+  title: "Assistant Lecturer"
+}
+
+window.onload = function empl(){
+  var myString = JSON.stringify(employee);
+  document.getElementById("test").innerHTML = myString;
+
+  var myObject = JSON.parse(myString);
+  var employeeName = myObject.name;
+  document.getElementById("test2").innerHTML = JSON.stringify(employeeName);
+}
   </script>
 </head>
 <body>
+  <div id="test"></div>
+  <div id="test2"></div>
 </body>
 </html>
