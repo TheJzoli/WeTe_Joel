@@ -25,7 +25,6 @@
 
 		callback.call(this, JSON.parse(localStorage[name]));
 	}
-
 	/**
 	 * Finds items based on a query given as a JS object
 	 *

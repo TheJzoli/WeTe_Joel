@@ -40,6 +40,29 @@ window.onload = function() {
 		count++;
 		div.innerHTML = message + count + " times!";
 	};
+
+	var speed = 0;
+	var playMessage = "Playback speed:  ";
+	var playback = document.getElementById("playback-speed");
+
+	document.getElementById("minus").onclick = function () {
+		speed--;
+		updateDiv();
+	};
+
+	document.getElementById("zero").onclick = function () {
+		speed = 0;
+		updateDiv();
+	};
+
+	document.getElementById("plus").onclick = function () {
+		speed++;
+		updateDiv();
+	};
+
+	function updateDiv() {
+		playback.innerHTML = playMessage + speed;
+	};
 };
 
 </script> 
@@ -47,6 +70,11 @@ window.onload = function() {
 <body>
 	<button id="clickme">Click me!</button>
 	<div id="message"></div>
+	<br>
+	<button id="minus">-</button>
+	<button id="zero">0</button>
+	<button id="plus">+</button>
+	<div id="playback-speed"></div>
 </body>
 </html>
 

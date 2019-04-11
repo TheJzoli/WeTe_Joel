@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Coffee Constructor</title>
+<title>Coffee and Tea Constructor</title>
 <script>
 
 function Coffee(roast, ounces) {
@@ -31,16 +31,71 @@ function Coffee(roast, ounces) {
 		}
 		return msg;
 	};
+	this.sip = function () {
+      console.log("Hmm, tasty");
+    };
+}
+
+function Tea(type, ounces) {
+    this.type = type;
+    this.ounces = ounces;
+    this.getSize = function () {
+        if (this.ounces === 8) {
+            return "small";
+        } else if (this.ounces === 12) {
+            return "medium";
+        } else if (this.ounces === 16) {
+            return "large";
+        }
+    };
+    this.getSteepTime = function () {
+        switch (this.type) {
+            case "Black Tea":
+                return "5 minutes";
+            case "Green Tea":
+                return "3 minutes";
+            case "Oolong Tea":
+                return "4 minutes";
+        }
+    };
+    this.order = function () {
+        var msg;
+        switch (this.getSize()) {
+            case "small":
+            case "medium":
+            case "large":
+                msg = "You've ordered a " + this.getSize() + " cup of " + this.type + ". Steep time will be " + this.getSteepTime();
+                break;
+            default:
+                msg = "We don't have " + this.type + " in that size!";
+                break;
+        }
+        return msg;
+    };
+    this.sip = function () {
+        console.log("Hmm, tasty");
+    };
 }
 
 var coffee = new Coffee("House Blend", 12);
 console.log(coffee.order());
 
 var darkRoast = new Coffee("Dark Roast", 16);
+darkRoast.sip();
 console.log(darkRoast.order());
 
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
+
+var blackTea = new Tea("Black Tea", 12);
+console.log(blackTea.order());
+
+var greenTea = new Tea("Green Tea", 8);
+greenTea.sip();
+console.log(greenTea.order());
+
+var oolongTea = new Tea("Oolong Tea", 16);
+console.log(oolongTea.order());
 
 </script>
 </head>
