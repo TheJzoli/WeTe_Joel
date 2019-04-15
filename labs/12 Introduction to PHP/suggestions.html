@@ -9,7 +9,17 @@ function showHint(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                var names = JSON.parse(xmlhttp.responseText);
+                console.log(names);
+                var txtHint = document.getElementById("txtHint");
+                txtHint.innerHTML = "";
+                for (var i=0; i<names.length; i++) {
+                    if(i===names.length-1) {
+                        txtHint.appendChild(document.createTextNode(names[i].firstname));
+                    } else {
+                        txtHint.appendChild(document.createTextNode(names[i].firstname + ", "));
+                    }
+                }
             }
         };
         xmlhttp.open("GET", "php/gethint.php?q=" + str, true);
