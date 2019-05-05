@@ -5,14 +5,16 @@
 //  $q = $_REQUEST["q"];
 // change the following
 
-if (!empty($_GET['location'])){
+$q = $_REQUEST["q"];
+
+if (!empty($q)){
   /**
    * Here we build the url we'll be using to access the google maps api
    */
   $maps_url = 'https://'.
   'maps.googleapis.com/'.
   'maps/api/geocode/json'.
-  '?address=' . urlencode($_GET['location']);
+  '?address=' . urlencode($q);
   $maps_json = file_get_contents($maps_url);
   $maps_array = json_decode($maps_json, true);
   $lat = $maps_array['results'][0]['geometry']['location']['lat'];
@@ -27,9 +29,18 @@ if (!empty($_GET['location'])){
     '&lng=' . $lng .
     '&client_id=CLIENT-ID'; //replace "CLIENT-ID"
   $instagram_json = file_get_contents($instagram_url);
-  $instagram_array = json_decode($instagram_json, true);
-  
+  //$instagram_array = json_decode($instagram_json, true);
+
+  echo $instagram_json;
  // give it back to Javascript
-  
+
+    // Twitterin apin käyttämiseen oikeasti tarvitsisi oauth avaimen.
+    $twitter_url = 'https://'.
+    'api.twitter.com/1.1/search/tweets.json'.
+    '?q=coding'.
+    '&geocode=' . $lat . ',' . $lng . ',2km';
+    $tweets_json = file_get_contents($twitter_url);
+
+    echo $tweets_json;
 }
 ?>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>geogram</title>
+  </head>
+  <body>
+
+  <script>
+      var xmlhttp = new XMLHttpRequest();
+      function request() {
+          var location = document.getElementsByName("location")[0].value;
+          xmlhttp.onreadystatechange = callback;
+          
+          xmlhttp.open("GET", "geogram.php?q=" + location, true);
+          xmlhttp.send();
+      }
+      
+      function callback() {
+          if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+              var instagram_array = JSON.parse(xmlhttp.responseText);
+              if(instagram_array) {
+                  instagram_array['data'].forEach( function (item) {
+                      var img = document.createElement("img");
+                      img.setAttribute('src', item['images']['low_resolution']['url']);
+                      img.setAttribute('alt', '');
+                      document.body.appendChild(img);
+                      });
+              }
+          }
+      }
+  </script>
+  <!-- call a Javascript function to send an XMLHttpRequest -->
+  
+  <form>
+    <input type="text" name="location"/>
+    <button type="submit" onclick="request()">Submit</button>
+  </form>
+    <br/>
+    
+ <!-- make a Javascript callback to handle the request when it arrives -->
+ <!--
+    <?php
+    if(!empty($instagram_array)){
+      foreach($instagram_array['data'] as $key=>$image){
+        echo '<img src="'.$image['images']['low_resolution']['url'].'" alt=""/><br/>';
+      }
+    }
+    ?>
+-->
+  </body>
+</html>
